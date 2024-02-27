@@ -1,0 +1,19 @@
+body{
+    width: 100%;
+}
+.fiszka{
+    height: 300px;
+    width: 200px;
+    background-color: aqua;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    backface-visibility: hidden;
+    margin: 20px;
+}
+.powtorz-pole{
+    display: flex;
+    flex-direction: row;
+}
