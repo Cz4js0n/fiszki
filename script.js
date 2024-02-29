@@ -1,5 +1,6 @@
 let fiszki = []
 let pole = document.getElementById("powtorz");
+let indexFiszki = 0;
 
 function dodajFiszke(){
     przod = document.getElementById("przod").value;
@@ -14,20 +15,31 @@ function zresetujFiszki(){
     fiszki = {};
 }
 
-function zacznijPowtarzac(){
+function kolejnaFiszka(){
+    if(indexFiszki < fiszki.length){
+        indexFiszki = indexFiszki + 1;
+        wyswietlFiszke();
+    }
+    else{
+        let popup = document.createElement('span');
+        popup.setAttribute('class', 'popup');
+        popup.innerHTML = "Skończyłeś naukę (powtórzono "+dlugosc+" fiszki)";
+        pole.appendChild(popup);
+    }
+}
+
+function wyswietlFiszke(){
     document.getElementById('container').style.display = "none";
     let dlugosc = fiszki.length;
-    for (let i = 0; i < dlugosc; i++){
-        let fiszkaDoDodania = document.createElement('span');
-        fiszkaDoDodania.setAttribute('class', 'fiszka');
-        fiszkaDoDodania.setAttribute('id', 'fiszka'+i)
-        fiszkaDoDodania.innerHTML = fiszki[i]["key"];
-        pole.appendChild(fiszkaDoDodania);
-        fiszkaDoDodania.addEventListener('click', function(){ 
-            fiszkaDoDodania.style.webkitTransitionDuration="2s";
-            fiszkaDoDodania.style.webkitTransform = 'rotateY(360deg)';
-            fiszkaDoDodania.innerHTML = fiszki[i]["value"];
-            fiszkaDoDodania.removeEventListener('click');
-        })
-    }
+    let fiszkaDoDodania = document.createElement('span');
+    fiszkaDoDodania.setAttribute('class', 'fiszka');
+    fiszkaDoDodania.setAttribute('id', 'fiszka'+(indexFiszki+1))
+    fiszkaDoDodania.innerHTML = fiszki[indexFiszki]["key"];
+    pole.appendChild(fiszkaDoDodania);
+    fiszkaDoDodania.addEventListener('click', function(){ 
+        fiszkaDoDodania.style.webkitTransitionDuration="2s";
+        fiszkaDoDodania.style.webkitTransform = 'rotateY(360deg)';
+        fiszkaDoDodania.innerHTML = fiszki[indexFiszki]["value"];
+        fiszkaDoDodania.removeEventListener('click');
+    })
 }
