@@ -1,3 +1,8 @@
+.container .popup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 body{
     width: 100%;
 }
@@ -16,4 +21,11 @@ body{
 .powtorz-pole{
     display: flex;
     flex-direction: row;
+}
+.popup{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 150px;
 }
