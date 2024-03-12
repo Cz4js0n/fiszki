@@ -19,6 +19,7 @@ function dodajFiszke(){
 
 function zresetujFiszki(){
     fiszki = {};
+    window.location.reload();
 }
 
 function wyswietlFiszke(index=aktualnaFiszkaIndex){
