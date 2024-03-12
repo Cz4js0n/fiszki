@@ -1,31 +1,83 @@
-.container .popup{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
 }
-body{
-    width: 100%;
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+header h1 {
+    margin: 0;
+}
+
+section {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+section h2 {
+    margin-top: 0;
+}
+
+.fiszki ul {
+    list-style: none;
+    padding: 0;
+}
+
+.fiszki li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.dodawanie-fiszki {
+    text-align: center;
+}
+
+.dodawanie-fiszki input[type=text] {
+    width: 300px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.dodawanie-fiszki input[type=button] {
+    margin: 10px;
+    background-color: #333;
+    color: #fff;
+    width: 140px;
+    border: 1px #333 solid;
+    height: 30px;
 }
 .fiszka{
     height: 300px;
     width: 200px;
-    background-color: aqua;
-    color: black;
+    background-color: #333;
+    color: #ddd;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 50px;
+    border-radius: 30px;
     backface-visibility: hidden;
     margin: 20px;
 }
 .powtorz-pole{
     display: flex;
-    flex-direction: row;
-}
-.popup{
-    display: flex;
     align-items: center;
     justify-content: center;
-    width: 200px;
-    height: 150px;
+    flex-direction: column;
+}
+.powtorz-pole input[type=button] {
+    margin: 10px;
+    background-color: #333;
+    color: #fff;
+    width: 140px;
+    border: 1px #333 solid;
+    height: 30px;
+    text-align: center;
 }
