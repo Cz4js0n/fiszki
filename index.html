@@ -4,19 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strona główna</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fiszki.css">
 </head>
 <body>
+    <header>
+        <h1>Nauka fiszek</h1>
+    </header>
     <div id="container">
-        <input type="text" id="przod">
-        <input type="text" id="tyl">
-        <input type="button" value="Dodaj" onclick="dodajFiszke()">
-        <input type="button" value="Resetuj" onclick="zresetujFiszki()">
-        <input type="button" value="Powtórz" onclick="wyswietlFiszke()">
+        <section class="dodawanie-fiszki">
+            <h1>Dodawanie fiszki</h1>
+            <input type="text" id="przod" placeholder="Pytanie">
+            <br>
+            <input type="text" id="tyl" placeholder="Odpowiedź">
+            <br>
+            <input type="button" value="Dodaj" onclick="dodajFiszke()">
+            <input type="button" value="Resetuj" onclick="zresetujFiszki()">
+            <br>
+            <input type="button" value="Powtórz" onclick="wyswietlFiszke()">
+        </section>
+        <section class="fiszki">
+            <h2>Lista fiszek</h2>
+            <ul id="lista">
+            </ul>
+        </section>
     </div>
     <div id="powtorz" class="powtorz-pole">
+        <div id="fiszki-pole" class="fiszki-pole"></div>
+        <input type="button" value="Następna fiszka" onclick="nastepnaFiszka()" style="display: none" id="nastepna">
     </div>
-    <input type="button" value="Nastepna fiszka" onclick="kolejnaFiszka()">
     <script src="script.js"></script>
 </body>
 </html>
