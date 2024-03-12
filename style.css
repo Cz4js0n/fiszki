@@ -53,18 +53,22 @@ section h2 {
     width: 140px;
     border: 1px #333 solid;
     height: 30px;
+    font-weight: border;
 }
 .fiszka{
+    border: #333 solid 1px;
     height: 300px;
     width: 200px;
-    background-color: #333;
-    color: #ddd;
+    background-color: #eeebeb;
+    color: #333;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 30px;
     backface-visibility: hidden;
     margin: 20px;
+    font-weight: bold;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 .powtorz-pole{
     display: flex;
@@ -76,8 +80,9 @@ section h2 {
     margin: 10px;
     background-color: #333;
     color: #fff;
-    width: 140px;
+    width: 150px;
     border: 1px #333 solid;
-    height: 30px;
-    text-align: center;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
 }
