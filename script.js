@@ -1,6 +1,8 @@
 let fiszki = []
-let pole = document.getElementById("powtorz");
-let indexFiszki = 0;
+let pole = document.getElementById("fiszki-pole");
+let lista = document.getElementById('lista');
+let aktualnaFiszkaIndex = 0;
+let dlugosc = fiszki.length;
 
 function dodajFiszke(){
     przod = document.getElementById("przod").value;
@@ -9,37 +11,39 @@ function dodajFiszke(){
     fiszka["key"] = przod;
     fiszka["value"] = tyl;
     fiszki.push(fiszka);
+    dlugosc += 1;
+    let dodana = document.createElement('li');
+    dodana.innerHTML = przod + " &#8594; " + tyl;
+    lista.appendChild(dodana);
 }
 
 function zresetujFiszki(){
     fiszki = {};
 }
 
-function kolejnaFiszka(){
-    if(indexFiszki < fiszki.length){
-        indexFiszki = indexFiszki + 1;
-        wyswietlFiszke();
-    }
-    else{
-        let popup = document.createElement('span');
-        popup.setAttribute('class', 'popup');
-        popup.innerHTML = "Skończyłeś naukę (powtórzono "+dlugosc+" fiszki)";
-        pole.appendChild(popup);
-    }
-}
-
-function wyswietlFiszke(){
+function wyswietlFiszke(index=aktualnaFiszkaIndex){
+    document.getElementById('nastepna').style.display = 'flex';
     document.getElementById('container').style.display = "none";
-    let dlugosc = fiszki.length;
     let fiszkaDoDodania = document.createElement('span');
     fiszkaDoDodania.setAttribute('class', 'fiszka');
-    fiszkaDoDodania.setAttribute('id', 'fiszka'+(indexFiszki+1))
-    fiszkaDoDodania.innerHTML = fiszki[indexFiszki]["key"];
+    fiszkaDoDodania.setAttribute('id', 'fiszka'+index)
+    fiszkaDoDodania.innerHTML = fiszki[index]["key"];
+    pole.innerHTML = "";
     pole.appendChild(fiszkaDoDodania);
     fiszkaDoDodania.addEventListener('click', function(){ 
         fiszkaDoDodania.style.webkitTransitionDuration="2s";
         fiszkaDoDodania.style.webkitTransform = 'rotateY(360deg)';
-        fiszkaDoDodania.innerHTML = fiszki[indexFiszki]["value"];
+        fiszkaDoDodania.innerHTML = fiszki[index]["value"];
         fiszkaDoDodania.removeEventListener('click');
     })
+}
+
+function nastepnaFiszka(){
+    if(aktualnaFiszkaIndex < dlugosc){
+        aktualnaFiszkaIndex = aktualnaFiszkaIndex+1;
+        wyswietlFiszke(aktualnaFiszkaIndex);
+    }
+    else{
+        document.getElementById('powtorz').innerHTML="<h1>Koniec fiszek</h1>";
+    }
 }
